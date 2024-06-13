@@ -30,3 +30,75 @@ a{ color:inherit; }
     .paging_box{ font-size: 13px; }
 } /* mobile */
 
+.RootCanvusSection{ display: flex; height: 100vh; background-color: #faf9f9; }
+.RootCanvusSection .canvusArti{ width: 150vh; }
+.RootCanvusSection .leftFixArti{ width: 150px;}
+.RootCanvusSection .rightFixArti{ position: relative; flex-grow: 1; min-width: 300px; flex-shrink: 0; }
+
+.RootCanvusSection .canvusArti{ position: relative; display: flex;  }
+.RootCanvusSection .canvusArti .canvusWrap{ width: 900px; display: flex; align-items: center; justify-content: center; flex-grow: 1; background-image: url('../img/canvus/defaultTsharts.png'); background-repeat: no-repeat; background-position: center; background-size: 650px;  }
+.RootCanvusSection .canvusArti .canvusWrap .guideLine{ pointer-events : none; width: 320px; border: 1px solid red; height:480px; margin-top: 10%; position: absolute; z-index: 999999999999999999999; }
+.RootCanvusSection .canvusArti .canvusMenu{ width: 100px; padding-right: 20px; display: flex; align-items: center; justify-content: center; gap: 20px; flex-direction: column; }
+.RootCanvusSection .canvusArti .canvusMenu .hide{ display: none; }
+.RootCanvusSection .canvusArti .canvusMenu > li{ width: 100%; text-align: center; }
+.RootCanvusSection .canvusArti .canvusMenu > li .item{ border: 1px solid #dfdfdf; margin: 0 auto; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; background-color: #fff; }
+.RootCanvusSection .canvusArti .canvusMenu > li .item .icon{ width: 50%; }
+.RootCanvusSection .canvusArti .canvusMenu > li .text{ margin-top:5px; font-size: 14px; color: #7F7F7F; }
+
+
+.RootCanvusSection .canvusArti .layerWrap{ width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+
+.RootCanvusSection .canvusArti .layerWrap .layer{ position:absolute; cursor: move; }
+.RootCanvusSection .canvusArti .layerWrap .layer.active{ border: 1px solid skyblue; }
+.RootCanvusSection .canvusArti .layerWrap .layer .sizeBox{ 
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* 인터넷익스플로러 */
+    user-select: none;
+    position: relative; border: 1px solid transparent; 
+    width: 100%; height: 100%; 
+}
+.RootCanvusSection .canvusArti .layerWrap .layer .sizeBox .circle{ opacity: 0; visibility: hidden; }
+.RootCanvusSection .canvusArti .layerWrap .layer.active .sizeBox .circle{ opacity: 1; visibility: visible; }
+.RootCanvusSection .canvusArti .layerWrap .layer .sizeBox .circle{ z-index: 9; position: absolute; cursor: pointer; border: 1px solid skyblue; width: 14px; height: 14px; border-radius: 50%; background-color: #80d5ff72; }
+.RootCanvusSection .canvusArti .layerWrap .layer .sizeBox .circle.leftTop{ /*cursor: nwse-resize;*/ top: -7px; left: -7px; }
+.RootCanvusSection .canvusArti .layerWrap .layer .sizeBox .circle.rightTop{ /*cursor: nesw-resize;*/ top: -7px; right: -7px; }
+.RootCanvusSection .canvusArti .layerWrap .layer .sizeBox .circle.leftBottom{ /*cursor: nesw-resize;*/ bottom: -7px; left: -7px; }
+.RootCanvusSection .canvusArti .layerWrap .layer .sizeBox .circle.rightBottom{ /*cursor: nwse-resize;*/ bottom: -7px; right: -7px; }
+.RootCanvusSection .canvusArti .layerWrap .layer .sizeBox .circle.rotateBtn{ cursor: pointer; left: calc(50% - 3.5px); top: -50px; }
+.RootCanvusSection .canvusArti .layerWrap .layer .sizeBox .circle.rotateBtn::before{ content:''; display: block; width: 1px; height: 36px; background-color: skyblue; position: absolute; left: 50%; top: 100%; }
+.RootCanvusSection .canvusArti .layerWrap .layer .sizeBox .circle label{ display: none; }
+.RootCanvusSection .canvusArti .layerWrap .layer .sizeBox .delBtn{ opacity: 0; visibility: hidden; position: absolute; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; border: none; background-color: transparent; right: 0; bottom: 0; }
+.RootCanvusSection .canvusArti .layerWrap .layer.active .sizeBox .delBtn{ opacity: 1; visibility: visible; }
+.RootCanvusSection .canvusArti .layerWrap .layer .sizeBox .delBtn .icon{ width: 80%; }
+.RootCanvusSection .canvusArti .layerWrap .layer .imgContent{ width: 100%; }
+
+.RootCanvusSection .layer .textInput{  pointer-events : none; width:100%; height: 100%; border: none; background-color: transparent; font-size: 50px; resize: none; overflow: hidden; }
+/* .layer.active .textInput */
+.RootCanvusSection .layer.modify .textInput{ pointer-events : auto;  }
+.RootCanvusSection .layer .ui-resizable-se{ right: -7px !important; bottom: -7px !important; } 
+.RootCanvusSection .layer .modifyBtn{ position: absolute; opacity: 0; visibility: hidden; right: -2px; bottom: calc( 100% + 5px); display: flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 20px; background-color: #fff; border: 1px solid #dfdfdf;  }
+.RootCanvusSection .layer.active .modifyBtn{ opacity: 1; visibility: visible; }
+.RootCanvusSection .layer.modify .modifyBtn{ opacity: 0; visibility: hidden; }
+.RootCanvusSection .layer .modifyBtn .icon{ width: 50%; }
+
+.RootCanvusSection .layer .ui-icon, .ui-widget-content .ui-icon{ background-image: unset !important; }
+
+.RootCanvusSection .rightFixArti .settingDiv{ box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1); opacity: 0; visibility: hidden; background-color: #fff; padding: 30px; border-radius: 20px; height: 100%; }
+.RootCanvusSection .rightFixArti .settingDiv .settingBox + .settingBox{ margin-top: 20px; }
+.RootCanvusSection .rightFixArti .settingDiv .settingBox .title{ font-size: 18px; font-weight: 500; }
+.RootCanvusSection .rightFixArti .settingDiv .settingBox .contentDiv{ margin-top: 5px; }
+.RootCanvusSection .rightFixArti .settingDiv .settingBox .contentDiv .ipt{ width: 100%; padding: 10px; }
+.RootCanvusSection .rightFixArti .settingDiv .settingBox .contentDiv .ipt[type='color']{ padding: 0; }
+.RootCanvusSection .rightFixArti .settingDiv .settingBox .contentDiv .itemBtn{ padding: 5px; border: 1px solid #dfdfdf; }
+.RootCanvusSection .rightFixArti .settingDiv .settingBox .contentDiv .itemBtn.active{ background-color: skyblue; }
+.RootCanvusSection .rightFixArti .settingDiv.on{ opacity: 1; visibility: visible; }
+
+.RootCanvusSection .leftFixArti .menuList{ box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1); padding: 20px; position: absolute; left: 10px; top: 10px; background-color: #fff; border-radius: 20px;  display: flex; gap: 20px; align-items: center; z-index: 999; }
+.RootCanvusSection .leftFixArti .menuList .layerBtn{ opacity: 0.3; pointer-events: none;  }
+.RootCanvusSection .leftFixArti .menuList.on .layerBtn{ opacity: 1; pointer-events: auto;  }
+.RootCanvusSection .leftFixArti .menuList .MenuBtn{ background-color: transparent; border: none;  }
+.RootCanvusSection .leftFixArti .menuList .MenuBtn .text{ margin-top: 5px; font-size: 14px; }
+.RootCanvusSection .leftFixArti .menuList .MenuBtn .icon{ width: 18px; }
+
+.RootCanvusSection .textSettingDiv{ position: absolute; left: 0; top: 0; width: 100%; }

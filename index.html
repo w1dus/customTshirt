@@ -9,15 +9,111 @@
         <link rel="stylesheet" href="./style/style.css">
         <link rel="stylesheet" href="./style/swiper.min.css">
         <link rel="stylesheet" href="./style/animation.css">
+        <link rel="stylesheet" href="./style/canvus_font.css">
         <!--스크립트-->
         <script type="text/javascript" src="./script/script.js"></script>
         <script type="text/javascript" src="./script/swiper.min.js"></script>
+        <script type="text/javascript" src="./script/canvus.js"></script>
         <!--폰트-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+        <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+
     </head>
     <body>
-
+        <section class="RootCanvusSection">
+            <article class="leftFixArti">
+                <ul class="menuList">
+                    <li><button type="button" class="moveFirst MenuBtn layerBtn"><img src="./img/canvus/layer.svg" class="icon" alt="맨앞으로"/><div class="text">맨앞으로</div></button></li>
+                    <li><button type="button" class="moveTail MenuBtn layerBtn"><img src="./img/canvus/layer.svg" class="icon" alt="맨앞으로"/><div class="text">맨뒤로</div></button></li>
+                    <li><button type="button" class="delLayer MenuBtn layerBtn"><img src="./img/canvus/trash.svg" class="icon" alt="삭제"/><div class="text">레이어 삭제</div></button></li>
+                </ul>
+            </article>
+            <article class="canvusArti">
+                <div class="canvusWrap">
+                    <div class="guideLine"></div>
+                    <div class="layerWrap" id="layerWrap">
+                        <!-- <div class="layer active" data-type="text">
+                            <div class="sizeBox">
+                                <div class="rotateBtn circle"><label>회전</label></div>
+                                <div class="leftTop circle"><label>좌측상단</label></div>
+                                <div class="rightTop circle"><label>우측상단</label></div>
+                                <div class="leftBottom circle"><label>좌측하단</label></div>
+                                <div class="rightBottom circle"><label>우측하단</label></div>
+                                <textarea class="textInput" placeholder="텍스트를 입력해주세요.">텍스트</textarea>
+                            </div>
+                        </div> -->
+                        <!-- <div class="layer" data-type="image" data-number="1" date-rotate="0">
+                            <div class="sizeBox">
+                                <button type="button" class="delBtn"><img src="./img/canvus/trash.svg" alt="삭제" class="icon" /></button>
+                                <div class="rotateBtn circle"><label>회전</label></div>
+                                <div class="leftTop circle"><label>좌측상단</label></div>
+                                <div class="rightTop circle"><label>우측상단</label></div>
+                                <div class="leftBottom circle"><label>좌측하단</label></div>
+                                <div class="rightBottom circle"><label>우측하단</label></div>
+                                <img src="./img/canvus/defaultTsharts.png" alt="테스트이미지" class="imgContent" />
+                            </div>
+                        </div>-->
+                    </div>
+                </div>
+                <ul class="canvusMenu">
+                    <li>
+                        <input type="file" class="hide" id="imgUpload"/>
+                        <label type="button" class="item uploadImg" for="imgUpload">
+                            <img src="./img/canvus/upload.svg" alt="이미지 업로드" class="icon" />
+                        </label>
+                        <div class="text">이미지 업로드</div>
+                    </li>
+                    <li>
+                        <button type="button" class="item addTypograpic" id="textLayerAdd"><img src="./img/canvus/typograpic.svg" alt="텍스트 추가" class="icon" /></button>
+                        <div class="text">텍스트</div>
+                    </li>
+                </ul>
+            </article>
+            <article class="rightFixArti">
+                <div class="defaultSettingDiv settingDiv on">
+                    기본
+                </div>
+                <!--텍스트 셋팅-->
+                <div class="textSettingDiv settingDiv">
+                    <div class="settingBox">
+                        <div class="title">서체</div>
+                        <div class="contentDiv">
+                            <select class="ipt" id="typeface">
+                                <option value="Pretendard">Pretendard</option>
+                                <option value="baemin-euljiro">배달의 민족 을지로체</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="settingBox">
+                        <div class="title">폰트사이즈</div>
+                        <div class="contentDiv">
+                            <input type="number" class="ipt" id="fontSize" value="50">
+                        </div>
+                    </div>
+                    <div class="settingBox">
+                        <div class="title">텍스트 정렬</div>
+                        <div class="contentDiv btnWrap">
+                            <button type="button" class="itemBtn alignBtn active" value="left"><img src="./img/canvus/left.svg" alt="왼쪽정렬" class="icon" /></button>
+                            <button type="button" class="itemBtn alignBtn" value="center"><img src="./img/canvus/center.svg" alt="가운데정렬" class="icon" /></button>
+                            <button type="button" class="itemBtn alignBtn" value="right"><img src="./img/canvus/right.svg" alt="우측정렬" class="icon" /></button>
+                        </div>
+                    </div>
+                    <div class="settingBox">
+                        <div class="title">글씨 색상</div>
+                        <div class="contentDiv btnWrap">
+                            <input type="color" class="ipt" id="textColor" />
+                        </div>
+                    </div>
+                </div>
+            </article>
+           
+        </section>
     </body>
 </html>
