@@ -52,7 +52,7 @@ const updateFontSettings = (element) => {
 
     // 기존 폰트 값 입력해서 넣기
     $('#typeface').val(fontFamily);
-    $('#fontSize').val(fontSize);
+    $('#fontSize').val(fontSizeValue);
     $('#textColor').val(rgbToHex(textColor));
 
 
